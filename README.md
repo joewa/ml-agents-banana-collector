@@ -1,7 +1,7 @@
 # ml-agents-banana-collector
 Collect good food and avoid bad food using Deep Q-Networks with Gym and Unity ML-Agents Toolkit
 
-![Training DQN agent with Unity and ML-Agent's](assets/food-collector-DQN-training-unity.gif)
+<img src="assets/food-collector-DQN-training-unity.gif" width="70%">
 
 This repository solves the [Banana Collector project](https://github.com/udacity/deep-reinforcement-learning/tree/561eec3ae8678a23a4557f1a15414a9b076fdfff/p1_navigation) from the Udacity "Deep Reinforcement Learning" Nanodegree. However, there are no bananas...
 
