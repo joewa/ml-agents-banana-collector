@@ -1,0 +1,5 @@
+# In _toc.yml
+format: jb-article
+root: README.md
+sections:
+- file: Navigation

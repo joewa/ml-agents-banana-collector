@@ -25,9 +25,7 @@ The Unity ML-Agents's environment contains three sensors, but only one at a time
 - [Camera Sensor](https://www.youtube.com/watch?v=7FHyqzUBzZ0), mounted at the agent (64x64 RGB).
 - Grid Sensor (used for observing the training progress only).
 
-The **complete code and the detailed results are provided in the [notebook](/../../Navigation.ipynb) and the [report](/../../docs/index.html)**.
-
-TODO: add video here?
+The **complete code and the detailed results are provided in the [notebook (Navigation.ipynb)](/../../blob/main/Navigation.ipynb) and the report at github-pages**.
 
 ## Ideas for further improvements
 - Stacking a few image frames may enable the (convolutional) layers to extract some temporal properties across those frames. This is currently done with the Ray Perception Sensor. It has 3 stacked observations per [Decision Period (4)](https://docs.unity3d.com/Packages/com.unity.ml-agents@1.0/api/Unity.MLAgents.DecisionRequester.html).
