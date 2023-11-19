@@ -14,12 +14,12 @@ More details are provided in the paper "[Human-level control through deep reinfo
 
 ## Extending the challenge
 The pre-built Banana Collector environments as described in the [project instructions](https://github.com/udacity/deep-reinforcement-learning/tree/561eec3ae8678a23a4557f1a15414a9b076fdfff/p1_navigation) is not used for solving the challenge. 
-Instead, [ML-Agent's Food Collector learning environment](https://github.com/Unity-Technologies/ml-agents/blob/7a03145ae48ad354821bd89e0243d99332149ace/docs/Learning-Environment-Examples.md#food-collector) is adapted to mimic the behaviour of the Banana Collector.
+Instead, [ML-Agent's Food Collector learning environment](https://github.com/Unity-Technologies/ml-agents/blob/7a03145ae48ad354821bd89e0243d99332149ace/docs/Learning-Environment-Examples.md#food-collector) is adapted to mimic the behavior of the Banana Collector.
 So Udacity's great lectures and the example will remain useful even though ML-Agents, Unity and Torch evolve.
 Furthermore, understanding end to end the DQN's theory and how Unity and ML-Agents work certainly provide an inspiring experience.
 
 ## Summary of the solution
-This repository contains the complete source code for the environment and the training of the agent enabling the reproduction of the presented results and futher evolution.
+This repository contains the complete source code for the environment and the training of the agent enabling the reproduction of the presented results and further evolution.
 The Unity ML-Agents's environment contains three sensors, but only one at a time is used for training and inference.
 - [Ray Perception Sensor 3D](https://www.immersivelimit.com/tutorials/rayperceptionsensorcomponent-tutorial) with 6 Rays Per Direction and 3 Stacked Raycasts.
 - [Camera Sensor](https://www.youtube.com/watch?v=7FHyqzUBzZ0), mounted at the agent (64x64 RGB).
@@ -28,14 +28,14 @@ The Unity ML-Agents's environment contains three sensors, but only one at a time
 The **complete code and the detailed results are provided in the [notebook (Navigation.ipynb)](/../../blob/main/Navigation.ipynb) and the report at github-pages**.
 
 ## Ideas for further improvements
-- Stacking a few image frames may enable the (convolutional) layers to extract some temporal properties across those frames. This is currently done with the Ray Perception Sensor. It has 3 stacked observations per [Decision Period (4)](https://docs.unity3d.com/Packages/com.unity.ml-agents@1.0/api/Unity.MLAgents.DecisionRequester.html).
+- Stacking a few image frames may enable the (convolution) layers to extract some temporal properties across those frames. This is currently done with the Ray Perception Sensor. It has 3 stacked observations per [Decision Period (4)](https://docs.unity3d.com/Packages/com.unity.ml-agents@1.0/api/Unity.MLAgents.DecisionRequester.html).
 - The agent has an inertia. So accelerating and braking are not immediate and take time. Turning while moving results in the agent drifting through the curves. A human player learns to adapt to this behavior after a while. Hence, using the speed vector of the agent as an additional feature (x,y) will likely enable the agent to learn moving more efficiently and smoothly. It is already available in the observations space of the Ray Perception Sensor. The idea of fusion of image data and other sensor data is demonstrated in the paper [Learning Selective Sensor Fusion for States Estimation](https://arxiv.org/pdf/1912.13077.pdf). A [RNN](https://www.youtube.com/watch?v=H3ciJF2eCJI)/LSTM([1](https://www.youtube.com/watch?v=V3D5ovKE9Og),[2](https://www.youtube.com/watch?v=XHEsLfquXtg)) is used there for further processing.
-- In the same [paper](https://arxiv.org/pdf/1912.13077.pdf), a [FlowNet-style architecture](https://github.com/changhao-chen/selective_sensor_fusion/blob/master/models.py) is used as feature encoder. Flownet provides features that are suited for optical flow prediction, which highly contributes to the egomotion detection. For a global relocalization task, they use Residual Neural Network (ResNet) to extract features from a set of single images. This is likely for very advanced students.
+- In the same [paper](https://arxiv.org/pdf/1912.13077.pdf), a [FlowNet-style architecture](https://github.com/changhao-chen/selective_sensor_fusion/blob/master/models.py) is used as feature encoder. Flownet provides features that are suited for optical flow prediction, which highly contributes to the egomotion detection. For a global re-localization task, they use Residual Neural Network (ResNet) to extract features from a set of single images. This is likely for very advanced students.
 - Deep Q-Learning tends to overestimate action values. [Double Q-Learning](https://arxiv.org/abs/1509.06461) has been shown to work well in practice to help with this. (Proposed by Udacity).
 - Deep Q-Learning samples experience transitions uniformly from a replay memory. [Prioritized experienced replay](https://arxiv.org/abs/1511.05952) is based on the idea that the agent can learn more effectively from some transitions than from others, and the more important transitions should be sampled with higher probability. (Proposed by Udacity).
 - Currently, in order to determine which states are (or are not) valuable, we have to estimate the corresponding action values for *each action*. However, by replacing the traditional Deep Q-Network (DQN) architecture with a [dueling architecture](https://arxiv.org/abs/1511.06581), we can assess the value of each state, without having to learn the effect of each action. (Proposed by Udacity).
 
-All these ideas may be apllied individually or combined all together.
+All these ideas may be applied individually or combined all together.
 
 I am happy to merge pull requests to extend this solution!
 
@@ -62,4 +62,4 @@ pip install numpy --upgrade
 ```
 
 ## Building the report
-The report is build with [jupyter{book}](https://jupyterbook.org/).
+The report is build with [jupyter{book}](https://jupyterbook.org/). See [`make_book.py`](make_book.py) for more details.
