@@ -388,13 +388,13 @@ More details are provided in the paper “<a class="reference external" href="ht
 <section id="extending-the-challenge">
 <h2>Extending the challenge<a class="headerlink" href="#extending-the-challenge" title="Permalink to this heading">#</a></h2>
 <p>The pre-built Banana Collector environments as described in the <a class="reference external" href="https://github.com/udacity/deep-reinforcement-learning/tree/561eec3ae8678a23a4557f1a15414a9b076fdfff/p1_navigation">project instructions</a> is not used for solving the challenge.
-Instead, <a class="reference external" href="https://github.com/Unity-Technologies/ml-agents/blob/7a03145ae48ad354821bd89e0243d99332149ace/docs/Learning-Environment-Examples.md#food-collector">ML-Agent’s Food Collector learning environment</a> is adapted to mimic the behaviour of the Banana Collector.
+Instead, <a class="reference external" href="https://github.com/Unity-Technologies/ml-agents/blob/7a03145ae48ad354821bd89e0243d99332149ace/docs/Learning-Environment-Examples.md#food-collector">ML-Agent’s Food Collector learning environment</a> is adapted to mimic the behavior of the Banana Collector.
 So Udacity’s great lectures and the example will remain useful even though ML-Agents, Unity and Torch evolve.
 Furthermore, understanding end to end the DQN’s theory and how Unity and ML-Agents work certainly provide an inspiring experience.</p>
 </section>
 <section id="summary-of-the-solution">
 <h2>Summary of the solution<a class="headerlink" href="#summary-of-the-solution" title="Permalink to this heading">#</a></h2>
-<p>This repository contains the complete source code for the environment and the training of the agent enabling the reproduction of the presented results and futher evolution.
+<p>This repository contains the complete source code for the environment and the training of the agent enabling the reproduction of the presented results and further evolution.
 The Unity ML-Agents’s environment contains three sensors, but only one at a time is used for training and inference.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.immersivelimit.com/tutorials/rayperceptionsensorcomponent-tutorial">Ray Perception Sensor 3D</a> with 6 Rays Per Direction and 3 Stacked Raycasts.</p></li>
@@ -406,14 +406,14 @@ The Unity ML-Agents’s environment contains three sensors, but only one at a ti
 <section id="ideas-for-further-improvements">
 <h2>Ideas for further improvements<a class="headerlink" href="#ideas-for-further-improvements" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Stacking a few image frames may enable the (convolutional) layers to extract some temporal properties across those frames. This is currently done with the Ray Perception Sensor. It has 3 stacked observations per <a class="reference external" href="https://docs.unity3d.com/Packages/com.unity.ml-agents&#64;1.0/api/Unity.MLAgents.DecisionRequester.html">Decision Period (4)</a>.</p></li>
+<li><p>Stacking a few image frames may enable the (convolution) layers to extract some temporal properties across those frames. This is currently done with the Ray Perception Sensor. It has 3 stacked observations per <a class="reference external" href="https://docs.unity3d.com/Packages/com.unity.ml-agents&#64;1.0/api/Unity.MLAgents.DecisionRequester.html">Decision Period (4)</a>.</p></li>
 <li><p>The agent has an inertia. So accelerating and braking are not immediate and take time. Turning while moving results in the agent drifting through the curves. A human player learns to adapt to this behavior after a while. Hence, using the speed vector of the agent as an additional feature (x,y) will likely enable the agent to learn moving more efficiently and smoothly. It is already available in the observations space of the Ray Perception Sensor. The idea of fusion of image data and other sensor data is demonstrated in the paper <a class="reference external" href="https://arxiv.org/pdf/1912.13077.pdf">Learning Selective Sensor Fusion for States Estimation</a>. A <a class="reference external" href="https://www.youtube.com/watch?v=H3ciJF2eCJI">RNN</a>/LSTM(<a class="reference external" href="https://www.youtube.com/watch?v=V3D5ovKE9Og">1</a>,<a class="reference external" href="https://www.youtube.com/watch?v=XHEsLfquXtg">2</a>) is used there for further processing.</p></li>
-<li><p>In the same <a class="reference external" href="https://arxiv.org/pdf/1912.13077.pdf">paper</a>, a <a class="reference external" href="https://github.com/changhao-chen/selective_sensor_fusion/blob/master/models.py">FlowNet-style architecture</a> is used as feature encoder. Flownet provides features that are suited for optical flow prediction, which highly contributes to the egomotion detection. For a global relocalization task, they use Residual Neural Network (ResNet) to extract features from a set of single images. This is likely for very advanced students.</p></li>
+<li><p>In the same <a class="reference external" href="https://arxiv.org/pdf/1912.13077.pdf">paper</a>, a <a class="reference external" href="https://github.com/changhao-chen/selective_sensor_fusion/blob/master/models.py">FlowNet-style architecture</a> is used as feature encoder. Flownet provides features that are suited for optical flow prediction, which highly contributes to the egomotion detection. For a global re-localization task, they use Residual Neural Network (ResNet) to extract features from a set of single images. This is likely for very advanced students.</p></li>
 <li><p>Deep Q-Learning tends to overestimate action values. <a class="reference external" href="https://arxiv.org/abs/1509.06461">Double Q-Learning</a> has been shown to work well in practice to help with this. (Proposed by Udacity).</p></li>
 <li><p>Deep Q-Learning samples experience transitions uniformly from a replay memory. <a class="reference external" href="https://arxiv.org/abs/1511.05952">Prioritized experienced replay</a> is based on the idea that the agent can learn more effectively from some transitions than from others, and the more important transitions should be sampled with higher probability. (Proposed by Udacity).</p></li>
 <li><p>Currently, in order to determine which states are (or are not) valuable, we have to estimate the corresponding action values for <em>each action</em>. However, by replacing the traditional Deep Q-Network (DQN) architecture with a <a class="reference external" href="https://arxiv.org/abs/1511.06581">dueling architecture</a>, we can assess the value of each state, without having to learn the effect of each action. (Proposed by Udacity).</p></li>
 </ul>
-<p>All these ideas may be apllied individually or combined all together.</p>
+<p>All these ideas may be applied individually or combined all together.</p>
 <p>I am happy to merge pull requests to extend this solution!</p>
 </section>
 <section id="installation-and-setting-up-the-environment">
@@ -439,7 +439,7 @@ The Unity ML-Agents’s environment contains three sensors, but only one at a ti
 </section>
 <section id="building-the-report">
 <h2>Building the report<a class="headerlink" href="#building-the-report" title="Permalink to this heading">#</a></h2>
-<p>The report is build with <a class="reference external" href="https://jupyterbook.org/">jupyter{book}</a>.</p>
+<p>The report is build with <a class="reference external" href="https://jupyterbook.org/">jupyter{book}</a>. See <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">make_book.py</span></code></span> for more details.</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
