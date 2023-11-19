@@ -194,7 +194,7 @@ public class FoodCollectorAgent : Agent
         var continuousActionsOut = actionsOut.ContinuousActions;
         if (Input.GetKey(KeyCode.D))
         {
-            continuousActionsOut[2] = 1;
+            continuousActionsOut[2] = -1;
         }
         if (Input.GetKey(KeyCode.W))
         {
@@ -202,14 +202,14 @@ public class FoodCollectorAgent : Agent
         }
         if (Input.GetKey(KeyCode.A))
         {
-            continuousActionsOut[2] = -1;
+            continuousActionsOut[2] = 1;
         }
         if (Input.GetKey(KeyCode.S))
         {
             continuousActionsOut[0] = -1;
         }
         var discreteActionsOut = actionsOut.DiscreteActions;
-        discreteActionsOut[0] = Input.GetKey(KeyCode.Space) ? 1 : 0;
+        // discreteActionsOut[0] = Input.GetKey(KeyCode.Space) ? 1 : 0;
     }
 
     public override void OnEpisodeBegin()
